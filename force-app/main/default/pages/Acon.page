@@ -1,0 +1,27 @@
+<apex:page controller="Acon">
+    <apex:form >
+       <apex:pageBlock >
+        <apex:pageBlockSection title="Account">
+            <apex:selectList size="1" value="{!selectaccount}" required="true">
+            <apex:selectOptions value="{!accountname}"/>
+            </apex:selectList>
+        </apex:pageBlockSection>
+       </apex:pageBlock>
+    
+       <apex:pageBlock >
+        <apex:pageBlockSection title="Contact"  rendered="{!selectaccount!=''}" >
+           <apex:pageBlockTable value="{!contact}" var="con">
+            <apex:column >
+                <apex:inputField value="{!con.firstName}"/>
+            </apex:column>
+            <apex:column >
+                <apex:inputField value="{!con.lastName}"/>
+            </apex:column>
+            <apex:column >
+                {!con.Id}
+            </apex:column>
+           </apex:pageBlockTable>
+        </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,35 @@
+<aura:component controller="CampingListController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="items" type="Camping_Item__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem}" />
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small" size="4">
+            <!-- CREATE NEW EXPENSE -->
+            <div aria-labelledby="newCampingItem">
+                <!-- BOXED AREA -->
+                <fieldset class="slds-box slds-theme--default slds-container--small">
+                    <legend id="newCampingItem" class="slds-text-heading--small 
+                                                       slds-p-vertical--medium">
+                        Add Camping Item
+                    </legend>
+                    <c:campingListForm/>
+                </fieldset>
+                <!-- / BOXED AREA -->
+            </div>
+            <!-- / CREATE NEW EXPENSE -->
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem padding="around-small" size="3">
+            <aura:Iteration items="{!v.items}" var="item">
+                <c:campingListItem item="{!item}" />
+            </aura:Iteration>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!--
+ <ol>
+     <li>Bug Spray</li>
+        <li>Bear Repellant</li>
+        <li>Goat Food</li>
+    </ol>
+-->
+</aura:component>

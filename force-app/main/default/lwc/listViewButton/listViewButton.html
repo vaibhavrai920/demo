@@ -1,0 +1,11 @@
+<template>
+    <p> These are the list view ids passed : {listViewIds}</p>
+    <lightning-button label = "Return to List View" onclick={close}></lightning-button>
+    <template if:true={metadatarecord.data}>
+        <div class="slds-m-around_medium">
+            <p>{label}</p>
+            <p>{developername}</p>
+            <p>{active}</p>
+        </div>
+    </template>
+</template>

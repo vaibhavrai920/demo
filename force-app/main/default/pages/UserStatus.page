@@ -1,0 +1,21 @@
+<apex:page >
+    	<apex:pageBlock title="User Status">
+    		<apex:pageBlockSection columns="1">
+            {! If($User.isActive, $User.Username,'inactive')}
+            <p>Today's Date is {! Today()}</p>
+              <p>Next week will be {! Today() +7} </p> 
+                <p>The year today is {! Year(Today())}</p>
+                <p>Tomorrow will be day number {! DAY(Today())+1}</p>
+                <p>Let's find a maximum: {! max(1,2,3,9,4,5)}</p>
+                <p>The square root of 49 : {! sqrt(49)}</p>
+            <p>Is it True? {! Contains('salesforce.com', 'force.com')}</p>
+                <p>
+                    {! If(Contains('salesforce.com', 'force.com'), 'Yep','Nope')}
+                </p>
+                <p>
+                    {! If( Day(Today()) < 15, 'Before the 15th','After the 15th')}
+                </p>
+            </apex:pageBlockSection>
+    
+    </apex:pageBlock>
+</apex:page>

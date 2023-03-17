@@ -1,0 +1,33 @@
+<apex:page standardController="Task" recordSetVar="tsk" extensions="ListViewController" lightningStylesheets="True">
+    <apex:includeLightning />
+    <div id="lightning" />
+    <script>
+    /*$Lightning.use("c:Preview", function() {
+        $Lightning.createComponent("c:SendEmail",
+                                   { 
+                                       "customListStr" : {!LstSelectedTask}
+                                   },
+                                   "lightning",
+                                   function(cmp) {
+                                       console.log("button was created");
+                                       // do some stuff
+                                   });
+    });*/
+    $Lightning.use("c:EmailMessageApp", function(){
+     $Lightning.createComponent("c:EmailMessageComponent",
+                                   { 
+                                       "customListStr" : {!LstSelectedTask}
+                                   },
+                                   "lightning",
+                                   function(cmp) {
+                                       console.log("button was created");
+                                       // do some stuff
+                                   });
+    })    
+    </script>    
+    
+   <!--This is how we call the Flow with a input paramater. Here CasesSelectedRecs is the input variable of the Flow
+   <flow:interview name="Task">
+        <apex:param name="TaskSelectedRecords" value="{!LstSelectedTask}" />
+    </flow:interview>-->
+</apex:page>
